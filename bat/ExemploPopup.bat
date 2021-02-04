@@ -2,5 +2,5 @@
 
 msg * "Ola mundo"
 
-pause
+exit
 
