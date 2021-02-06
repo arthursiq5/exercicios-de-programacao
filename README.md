@@ -5,7 +5,9 @@ Esse repositório é uma espécie de caderno de rascunhos, onde eu faço os exer
 ### Algumas fontes interessantes:
 
 - [Programação Progressiva][programacao progressiva]
-
+- [SoloLearn][sololearn]
+- [Wikilivros][wikilivros]
 
    [programacao progressiva]: https://www.programacaoprogressiva.net/
-
+   [sololearn]: https://www.sololearn.com/
+   [wikilivros]: https://pt.wikibooks.org/wiki/Categoria:Inform%C3%A1tica

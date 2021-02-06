@@ -1,6 +1,6 @@
-rem instruções:
-rem você deve ter um diretório chamado "origem" no seu disco local C
-rem e um diretório chamado "destino" no seu disco local E (provavelmente um pendrive)
+:: instruções:
+:: você deve ter um diretório chamado "origem" no seu disco local C
+:: e um diretório chamado "destino" no seu disco local E (provavelmente um pendrive)
 @echo off
 
 title: Programa de backup de dados
