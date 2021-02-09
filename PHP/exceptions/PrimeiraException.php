@@ -1,8 +1,8 @@
 <?php
 
 try{
-    echo 2/0;
+    throw new Exception('erro');
 } catch (Exception $e){
-    echo 'Erro ao tentar fazer divisão com zero';
+    echo 'Erro genérico no código';
 }
 
