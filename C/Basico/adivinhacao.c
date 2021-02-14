@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 #define TRUE 1
+
+int geraNumeroSecreto(){
+    int segundos = time(0);
+    srand(segundos); // define a semente do número
+
+    return rand() % 100;
+}
 
 int main() {
     printf("************************************\n");
@@ -8,7 +17,7 @@ int main() {
     printf("************************************\n");
     printf("\n\n\n");
 
-    int numeroSecreto = 42,
+    int numeroSecreto = geraNumeroSecreto(),
         chute = 0,
         acertou = 0, // adicionada variável pra melhorar a legibilidade
         contador = 0,
