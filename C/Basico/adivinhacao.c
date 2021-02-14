@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define QUANTIDADE_CHUTES 5
 
 int main() {
     printf("************************************\n");
@@ -10,32 +11,37 @@ int main() {
         chute = 0,
         condicional = 0; // adicionada variável pra melhorar a legibilidade
 
-    printf("Qual é o seu chute? ");
-    scanf(" %d", &chute);
-    printf("Você chutou o número %d!\n\n", chute);
+    for (int i = 0; i < QUANTIDADE_CHUTES; i++)
+    {
 
-    condicional = chute == numeroSecreto;
+        printf("Qual é o seu %dº chute? ", (i + 1));
+        scanf(" %d", &chute);
+        printf("Você chutou o número %d!\n\n", chute);
 
-    if(condicional){
+        condicional = chute == numeroSecreto;
 
-        printf("Parabéns! Você acertou!\n");
-        printf("Jogue de novo, você é muito bom\n\n");
+        if(condicional){
 
-    }else{
-    
-        condicional = chute > numeroSecreto;
+            printf("Parabéns! Você acertou!\n");
+            printf("Jogue de novo, você é muito bom\n\n");
+            break;
 
-        if (condicional)
-        {
-
-            printf("Que pena, você errou\n");
-            printf("O seu chute foi maior que o número secreto\n");
-        
         }else{
         
-            printf("Que pena, você errou\n");
-            printf("O seu chute foi menor que o número secreto\n");
-        
+            condicional = chute > numeroSecreto;
+
+            if (condicional)
+            {
+
+                printf("Que pena, você errou\n");
+                printf("O seu chute foi maior que o número secreto\n\n");
+            
+            }else{
+            
+                printf("Que pena, você errou\n");
+                printf("O seu chute foi menor que o número secreto\n\n");
+            
+            }
         }
     }
 
