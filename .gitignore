@@ -1,2 +1,9 @@
+# arquivos Windows
 *~
+
+# arquivos do Mac OS
 .DS_Store
+
+# arquivos temporários do Ubuntu
+*.swp
+
