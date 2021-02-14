@@ -9,7 +9,7 @@ int main() {
 
     int numeroSecreto = 42,
         chute = 0,
-        condicional = 0; // adicionada variável pra melhorar a legibilidade
+        acertou = 0; // adicionada variável pra melhorar a legibilidade
 
     for (int i = 0; i < QUANTIDADE_CHUTES; i++)
     {
@@ -18,25 +18,31 @@ int main() {
         scanf(" %d", &chute);
         printf("Você chutou o número %d!\n\n", chute);
 
-        condicional = chute == numeroSecreto;
+        acertou = chute == numeroSecreto;
 
-        if(condicional){
+        if(acertou){
 
             printf("Parabéns! Você acertou!\n");
             printf("Jogue de novo, você é muito bom\n\n");
             break;
 
         }else{
-        
-            condicional = chute > numeroSecreto;
+            
+            int maior = chute > numeroSecreto,
+                menor = chute < numeroSecreto,
+                negativo = chute < 0;
 
-            if (condicional)
+            if (negativo){
+                printf("Dado inválido, o chute não pode ser negativo\n");
+                printf("O programa será encerrado\n\n");
+                break;
+            }else if (maior)
             {
 
                 printf("Que pena, você errou\n");
                 printf("O seu chute foi maior que o número secreto\n\n");
             
-            }else{
+            }else if(menor){
             
                 printf("Que pena, você errou\n");
                 printf("O seu chute foi menor que o número secreto\n\n");
