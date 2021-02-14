@@ -1,10 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
 #define TRUE 1
-
-int absoluto(int numero){
-    if (numero >= 0) return numero;
-    return -numero;
-}
 
 int main() {
     printf("************************************\n");
@@ -37,7 +33,7 @@ int main() {
 
         }else{
 
-            int pontosPerdidos = absoluto(chute - numeroSecreto) / 2;
+            int pontosPerdidos = abs(chute - numeroSecreto) / 2;
             pontos -= pontosPerdidos;
 
             if(pontos < 0) pontos = 0;
