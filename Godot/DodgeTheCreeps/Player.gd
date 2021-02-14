@@ -8,7 +8,6 @@ var screen_size
 func _ready():
     screen_size = get_viewport_rect().size
 
-
 func _process(delta):
     var velocity = Vector2()  # Vetor de movimento do jogador
     
@@ -29,3 +28,11 @@ func _process(delta):
     position += velocity * delta
     position.x = clamp(position.x, 0, screen_size.x)
     position.y = clamp(position.y, 0, screen_size.y)
+    
+    if velocity.x != 0:
+        $AnimatedSprite.animation = "Caminhar"
+        $AnimatedSprite.flip_v = false
+        $AnimatedSprite.flip_h = velocity.x > 0
+    elif velocity.y != 0:
+        $AnimatedSprite.animation = "Subir"
+        $AnimatedSprite.flip_v = velocity.y > 0
