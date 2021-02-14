@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define QUANTIDADE_CHUTES 5
+#define TRUE 1
 
 int main() {
     printf("************************************\n");
@@ -9,12 +9,14 @@ int main() {
 
     int numeroSecreto = 42,
         chute = 0,
-        acertou = 0; // adicionada variável pra melhorar a legibilidade
+        acertou = 0, // adicionada variável pra melhorar a legibilidade
+        contador = 0;
 
-    for (int i = 0; i < QUANTIDADE_CHUTES; i++)
-    {
+    while (TRUE){
 
-        printf("Qual é o seu %dº chute? ", (i + 1));
+        contador++;
+
+        printf("Qual é o seu %dº chute? ", contador);
         scanf(" %d", &chute);
         printf("Você chutou o número %d!\n\n", chute);
 
