@@ -1,6 +1,11 @@
 #include <stdio.h>
 #define TRUE 1
 
+int absoluto(int numero){
+    if (numero >= 0) return numero;
+    return -numero;
+}
+
 int main() {
     printf("************************************\n");
     printf("* Bem-vindo ao Jogo de Adivinhação *\n");
@@ -10,7 +15,8 @@ int main() {
     int numeroSecreto = 42,
         chute = 0,
         acertou = 0, // adicionada variável pra melhorar a legibilidade
-        contador = 0;
+        contador = 0,
+        pontos = 1000;
 
     while (TRUE){
 
@@ -25,10 +31,16 @@ int main() {
         if(acertou){
 
             printf("Parabéns! Você acertou!\n");
+            printf("Você conseguiu %d pontos\n", pontos);
             printf("Jogue de novo, você é muito bom\n\n");
             break;
 
         }else{
+
+            int pontosPerdidos = absoluto(chute - numeroSecreto) / 2;
+            pontos -= pontosPerdidos;
+
+            if(pontos < 0) pontos = 0;
             
             int maior = chute > numeroSecreto,
                 menor = chute < numeroSecreto,
