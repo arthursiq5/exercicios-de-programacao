@@ -1,8 +1,18 @@
 @echo off
+chcp 65001
 
-set pi=3.141592654
-set /p raio=Qual eh o raio do circulo?
+echo.
+echo.
+
+:: batch files não suportam números de ponto flutuante
+set pi=3
+set /p raio=Qual é o raio do circulo?
 
 :: calcula área
-set /a area=%pi%*%area%*%area%
+set /a area=%pi% * %raio% * %raio%
+
+echo.
+echo.
+
+echo Área aproximada: %area% cm²
 
