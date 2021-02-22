@@ -5,6 +5,13 @@ class Produto {
     private $estoque;
     private $preco;
 
+    public function __construct($descricao, $estoque, $preco)
+    {
+        $this->setDescricao($descricao)
+            ->setEstoque($estoque)
+            ->setPreco($preco);
+    }
+
     /**
      * @param string $descricao
      * @return Produto
@@ -28,7 +35,7 @@ class Produto {
      * @param int $estoque
      * @return Produto
      */
-    public function setEstoque($estoque)
+    private function setEstoque($estoque)
     {
         if(is_numeric($estoque) && $estoque >= 0)
             $this->estoque = $estoque;
@@ -44,7 +51,7 @@ class Produto {
      * @param int $preco
      * @return Produto
      */
-    public function setPreco($preco)
+    private function setPreco($preco)
     {
         if(is_numeric($preco) && $preco >= 0)
             $this->preco = $preco;
@@ -58,7 +65,7 @@ class Produto {
     public function reajustaPreco($porcentagem)
     {
         if(is_numeric($porcentagem) && $porcentagem > 0 && $porcentagem <= 100)
-            $this->preco *= (1 + ($porcentagem / 100));
+            $this->setPreco($this->preco * (1 + ($porcentagem / 100)));
         return $this;
     }
 
@@ -70,10 +77,7 @@ class Produto {
 
 // A tentativa de atribuição de valores às propriedades vai gerar um erro,
 // pois todas as propriedades são privadas
-$p1 = new Produto();
-$p1->setDescricao('Chocolate')
-    ->setEstoque(10)
-    ->setPreco(7)
-    ->reajustaPreco(5);
+$p1 = new Produto('Chocolate', 10, 7);
+$p1->reajustaPreco(5);
 
 print_r($p1);
