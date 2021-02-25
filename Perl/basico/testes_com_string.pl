@@ -9,4 +9,3 @@ say "Perl" . " " . "Progressivo";
 
 say "Rush" x 3;
 say 4 x 3;
-

@@ -15,4 +15,3 @@ saudacao="Hello                  World"
 # variáveis que contiverem texto e que não forem declaradas dentro de aspas terão espaços extras "comidos"
 echo $saudacao
 echo "agora com espaços: $saudacao"
-

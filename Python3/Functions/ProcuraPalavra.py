@@ -7,4 +7,3 @@ text = input('Insira o texto a ser analisado: ')
 word = input('Insira a palavra a ser pesquisada dentro do texto: ')
 
 print(search(text, word))
-

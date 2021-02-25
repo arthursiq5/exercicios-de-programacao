@@ -3,10 +3,9 @@
 set linguagem=Batch Script
 set fracao_frase=Estou aprendendo
 
-::concatenação
+::concatenaï¿½ï¿½o
 set frase=%fracao_frase% %linguagem%
 
 echo %frase%
 
 pause
-

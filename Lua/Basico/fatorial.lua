@@ -9,5 +9,4 @@ end
 
 print("Escreva um número: ")
 a = io.read("*number")
-print(fact(a)
-)
+print(fact(a))

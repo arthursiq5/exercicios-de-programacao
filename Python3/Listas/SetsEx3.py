@@ -7,4 +7,3 @@ print(first & second) # retorna os elementos que aparecem em ambos os sets
 print(first - second) # mostra os elementos que aparecem em 'first' mas não em 'second'
 print(second - first) # mostra os elementos que aparecem em 'second' mas não em 'first'
 print(first ^ second) # mostra os elementos que aparecem em 'first' e 'second', mas não em ambos
-

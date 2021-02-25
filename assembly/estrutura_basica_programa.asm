@@ -10,4 +10,3 @@ global _start
 
 _start
     ;o programa começa a rodar a partir daqui
-

@@ -1,12 +1,11 @@
 @echo off
 
-:: colocar a declaração das variáveis entre aspas permite que se use
-:: símbolos especiais de atribuição ou outros na mensagem sem quebrar
+:: colocar a declaraï¿½ï¿½o das variï¿½veis entre aspas permite que se use
+:: sï¿½mbolos especiais de atribuiï¿½ï¿½o ou outros na mensagem sem quebrar
 :: o programa
 set /p "usuario=Usuario> "
 
 echo %usuario:a=x%
 
-:: o >nul redireciona a saída do pause para nulo
+:: o >nul redireciona a saï¿½da do pause para nulo
 pause >nul
-

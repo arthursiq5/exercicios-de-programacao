@@ -8,4 +8,3 @@ while x < limite:
         print(str(x) + " é ímpar")
 
     x += 1
-

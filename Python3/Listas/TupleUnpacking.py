@@ -3,4 +3,3 @@ a, b, c = numeros # convertendo uma tupla em três variáveis
 print(a)
 print(b)
 print(c)
-

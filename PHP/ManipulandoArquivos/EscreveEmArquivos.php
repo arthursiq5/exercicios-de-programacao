@@ -12,4 +12,3 @@ fclose($myfile);
 John
 David
 */
-

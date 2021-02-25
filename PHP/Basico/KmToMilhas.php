@@ -12,4 +12,3 @@ function km2mi($quilometros)
 echo 'percorreu ' . km2mi(100) . " milhas <br>\n";
 echo 'percorreu ' . km2mi(100) . " milhas <br>\n";
 echo 'percorreu no total ' . $total . " quilometros<br>\n";
-

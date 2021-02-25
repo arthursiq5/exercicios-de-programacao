@@ -11,4 +11,3 @@ $b->nome = "Joana";
 echo $a->nome;
 echo " ";
 echo $b->nome;
-

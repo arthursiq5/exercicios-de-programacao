@@ -16,7 +16,6 @@ $remove_acento = function($str)
     ];
 
     return str_replace($a, $b, $str);
-
 };
 
 $palavras = [
@@ -30,4 +29,3 @@ $result = array_map($remove_acento, $palavras);
 print_r($palavras);
 echo "<br>\n";
 print_r($result);
-

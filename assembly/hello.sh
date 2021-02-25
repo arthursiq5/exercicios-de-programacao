@@ -13,4 +13,3 @@ ld hello.o -o hello
 # forma 2:
 nasm -f hello.asm
 ld -m elf_i386 hello.o -o hello
-

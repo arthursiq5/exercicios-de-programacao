@@ -22,5 +22,4 @@ class Caneta {
     public function destampar() {
         $this->tampada = false;
     }
-
 }

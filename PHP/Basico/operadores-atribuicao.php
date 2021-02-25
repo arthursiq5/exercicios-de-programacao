@@ -37,5 +37,3 @@ $var = 1;
 
 echo 'Valor na utilização($var--): ' . $var-- . '<br>';
 echo 'Valor pós utilização($var--): ' . $var . '<hr>';
-
-

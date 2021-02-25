@@ -47,4 +47,3 @@ func _on_Player_body_entered(body):
     hide()
     emit_signal("hit")
     $CollisionShape2D.set_deferred("disabled", true)
-    

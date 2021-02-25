@@ -7,4 +7,3 @@ else:
     maior = num2
 
 print('O maior número digitado foi {}'.format(maior))
-

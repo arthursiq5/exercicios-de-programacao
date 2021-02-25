@@ -15,4 +15,3 @@ while(!feof($file)) // testa se está já no fim do arquivo
 }
 
 fclose($file); // fecha arquivo
-

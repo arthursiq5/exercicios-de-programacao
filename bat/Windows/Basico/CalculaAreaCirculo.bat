@@ -15,4 +15,3 @@ echo.
 echo.
 
 echo Área aproximada: %area% cm²
-

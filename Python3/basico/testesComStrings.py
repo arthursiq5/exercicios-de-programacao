@@ -10,4 +10,3 @@ print('\n\n---\n\n')
 
 texto = 'strings'
 print('Estou' + "concatenando" + texto)
-

@@ -9,4 +9,3 @@ dias = {
 }
 
 print(dias[3])
-

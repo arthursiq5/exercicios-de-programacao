@@ -12,4 +12,3 @@ elif(bmi < 30):
     print('Overweight')
 else:
     print('Obesity')
-
