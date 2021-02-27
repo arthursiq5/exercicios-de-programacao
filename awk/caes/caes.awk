@@ -7,3 +7,8 @@ BEGIN {
 {
 	print $0
 }
+
+END {
+	print "\n\n"
+	print "Obrigado por utilizar os nossos serviços"
+}
