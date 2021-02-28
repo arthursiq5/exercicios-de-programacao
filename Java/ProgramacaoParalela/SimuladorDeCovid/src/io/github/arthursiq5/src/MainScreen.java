@@ -237,11 +237,11 @@ public class MainScreen extends JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btIncreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncreaseActionPerformed
-        
+        this.vel++;
     }//GEN-LAST:event_btIncreaseActionPerformed
 
     private void btDecreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDecreaseActionPerformed
-        
+        this.vel--;
     }//GEN-LAST:event_btDecreaseActionPerformed
 
     /**
