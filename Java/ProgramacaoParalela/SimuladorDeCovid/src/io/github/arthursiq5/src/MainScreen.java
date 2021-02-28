@@ -5,17 +5,47 @@
  */
 package io.github.arthursiq5.src;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 /**
  *
  * @author arthur
  */
-public class MainScreen extends javax.swing.JFrame {
+public class MainScreen extends JFrame implements Runnable {
+    
+    private static final String IMG_PATH = "/io/github/arthursiq5/img/";
+    private static final String IMG_EXTENSION = ".gif";
+    private JLabel pessoas[] = new JLabel[this.MAX_PESSOAS];
+    private final int MAX_PESSOAS = 30;
+    private int vel = 50;
+    
 
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
+        
+        for(int i = 0; i < this.MAX_PESSOAS; i++){
+            int icone = (int) (Math.random() * 4);
+            this.pessoas[i] = new JLabel();
+            this.pessoas[i].setIcon(new ImageIcon(getClass().getResource(IMG_PATH + "im" + icone + this.IMG_EXTENSION)));
+            
+            int xIni = (int) (Math.random() * this.paGame.getWidth());
+            int yIni = (int) (Math.random() * this.paGame.getHeight());
+            
+            this.pessoas[i].setBounds(xIni, yIni, 32, 32);
+            this.paGame.add(this.pessoas[i]);
+            
+        }
+        pack();
+    }
+    
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
