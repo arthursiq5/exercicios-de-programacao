@@ -8,6 +8,7 @@ package io.github.arthursiq5.src;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,11 +34,11 @@ public class MainScreen extends JFrame implements Runnable {
             this.pessoas[i] = new JLabel();
             this.pessoas[i].setIcon(new ImageIcon(getClass().getResource(IMG_PATH + "im" + icone + this.IMG_EXTENSION)));
             
-            int xIni = (int) (Math.random() * this.paGame.getWidth());
-            int yIni = (int) (Math.random() * this.paGame.getHeight());
+            int xIni = (int) (Math.random() * this.gamePanel.getWidth());
+            int yIni = (int) (Math.random() * this.gamePanel.getHeight());
             
             this.pessoas[i].setBounds(xIni, yIni, 32, 32);
-            this.paGame.add(this.pessoas[i]);
+            this.gamePanel.add(this.pessoas[i]);
             
         }
         pack();
@@ -77,7 +78,7 @@ public class MainScreen extends JFrame implements Runnable {
                     }
                 }
 
-                if (pessoas[i].getX() + pessoas[i].getWidth() > paGame.getWidth()) {
+                if (pessoas[i].getX() + pessoas[i].getWidth() > gamePanel.getWidth()) {
                     x[i] *= -o;
                 }
 
@@ -85,7 +86,7 @@ public class MainScreen extends JFrame implements Runnable {
                     x[i] *= -o;
                 }
 
-                if (pessoas[i].getY() + pessoas[i].getHeight() > paGame.getHeight()) {
+                if (pessoas[i].getY() + pessoas[i].getHeight() > gamePanel.getHeight()) {
                     y[i] *= -o;
                 }
 
@@ -131,27 +132,27 @@ public class MainScreen extends JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        paGame = new javax.swing.JPanel();
+        gamePanel = new javax.swing.JPanel();
         paStatus = new javax.swing.JPanel();
         paConfig = new javax.swing.JPanel();
-        btIncrease = new javax.swing.JButton();
-        btDecrease = new javax.swing.JButton();
-        mbMenu = new javax.swing.JMenuBar();
-        mmFile = new javax.swing.JMenu();
-        mmEdit = new javax.swing.JMenu();
+        increaseSpeedButton = new javax.swing.JButton();
+        decreaseSpeedButton = new javax.swing.JButton();
+        menuBar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        aboutButton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        paGame.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        gamePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout paGameLayout = new javax.swing.GroupLayout(paGame);
-        paGame.setLayout(paGameLayout);
-        paGameLayout.setHorizontalGroup(
-            paGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
+        gamePanel.setLayout(gamePanelLayout);
+        gamePanelLayout.setHorizontalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 838, Short.MAX_VALUE)
         );
-        paGameLayout.setVerticalGroup(
-            paGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        gamePanelLayout.setVerticalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 344, Short.MAX_VALUE)
         );
 
@@ -166,17 +167,17 @@ public class MainScreen extends JFrame implements Runnable {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        btIncrease.setText("Vel+");
-        btIncrease.addActionListener(new java.awt.event.ActionListener() {
+        increaseSpeedButton.setText("Vel+");
+        increaseSpeedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btIncreaseActionPerformed(evt);
+                increaseSpeedButtonActionPerformed(evt);
             }
         });
 
-        btDecrease.setText("Vel -");
-        btDecrease.addActionListener(new java.awt.event.ActionListener() {
+        decreaseSpeedButton.setText("Vel -");
+        decreaseSpeedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btDecreaseActionPerformed(evt);
+                decreaseSpeedButtonActionPerformed(evt);
             }
         });
 
@@ -187,27 +188,33 @@ public class MainScreen extends JFrame implements Runnable {
             .addGroup(paConfigLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(paConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btIncrease)
-                    .addComponent(btDecrease))
+                    .addComponent(increaseSpeedButton)
+                    .addComponent(decreaseSpeedButton))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         paConfigLayout.setVerticalGroup(
             paConfigLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paConfigLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btIncrease)
+                .addComponent(increaseSpeedButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btDecrease)
+                .addComponent(decreaseSpeedButton)
                 .addContainerGap(274, Short.MAX_VALUE))
         );
 
-        mmFile.setText("File");
-        mbMenu.add(mmFile);
+        jMenu1.setText("Ajuda");
 
-        mmEdit.setText("Edit");
-        mbMenu.add(mmEdit);
+        aboutButton.setText("Sobre");
+        aboutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(aboutButton);
 
-        setJMenuBar(mbMenu);
+        menuBar.add(jMenu1);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,7 +225,7 @@ public class MainScreen extends JFrame implements Runnable {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(paGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(paConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -227,7 +234,7 @@ public class MainScreen extends JFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(paGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88)
                 .addComponent(paStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -236,13 +243,22 @@ public class MainScreen extends JFrame implements Runnable {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btIncreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncreaseActionPerformed
-        this.vel++;
-    }//GEN-LAST:event_btIncreaseActionPerformed
-
-    private void btDecreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDecreaseActionPerformed
+    private void increaseSpeedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increaseSpeedButtonActionPerformed
         this.vel--;
-    }//GEN-LAST:event_btDecreaseActionPerformed
+    }//GEN-LAST:event_increaseSpeedButtonActionPerformed
+
+    private void decreaseSpeedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decreaseSpeedButtonActionPerformed
+        this.vel++;
+    }//GEN-LAST:event_decreaseSpeedButtonActionPerformed
+
+    private void aboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutButtonActionPerformed
+        JOptionPane.showMessageDialog(null, "Aplicação de simulação de COVID-19 "
+                + "desenvolvida durante as aulas de programação paralela\n\n"
+                + "Por: Arthur Siqueira\n"
+                + "Ano: 2021",
+                "About",
+                JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_aboutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,13 +296,13 @@ public class MainScreen extends JFrame implements Runnable {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btDecrease;
-    private javax.swing.JButton btIncrease;
-    private javax.swing.JMenuBar mbMenu;
-    private javax.swing.JMenu mmEdit;
-    private javax.swing.JMenu mmFile;
+    private javax.swing.JMenuItem aboutButton;
+    private javax.swing.JButton decreaseSpeedButton;
+    private javax.swing.JPanel gamePanel;
+    private javax.swing.JButton increaseSpeedButton;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JPanel paConfig;
-    private javax.swing.JPanel paGame;
     private javax.swing.JPanel paStatus;
     // End of variables declaration//GEN-END:variables
 }
