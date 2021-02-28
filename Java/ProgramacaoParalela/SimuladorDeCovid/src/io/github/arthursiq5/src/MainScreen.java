@@ -41,11 +41,85 @@ public class MainScreen extends JFrame implements Runnable {
             
         }
         pack();
+        
+        Thread thread = new Thread(this);
+        thread.start();
     }
     
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         int x[] = new int[this.MAX_PESSOAS];
+        int y[] = new int[this.MAX_PESSOAS];
+
+        for (int i = 0; i < this.MAX_PESSOAS; i++) {
+            x[i] = 1;
+            y[i] = 1;
+        }
+
+        while (true) {
+            for (int i = 0; i < this.MAX_PESSOAS; i++) {
+
+                int o = 1;
+
+                if (Math.random() > 0.95) {
+                    x[i] *= -1;
+                }
+
+                if (Math.random() > 0.95) {
+                    y[i] *= -1;
+                }
+
+                int s = (int) (Math.random() * 10);
+                if (s > 8) {
+                    o = (int) (Math.random() * 4);
+                    if (Math.random() > 0.95) {
+                        o *= -1;
+                    }
+                }
+
+                if (pessoas[i].getX() + pessoas[i].getWidth() > paGame.getWidth()) {
+                    x[i] *= -o;
+                }
+
+                if (pessoas[i].getX() + x[i] < 0) {
+                    x[i] *= -o;
+                }
+
+                if (pessoas[i].getY() + pessoas[i].getHeight() > paGame.getHeight()) {
+                    y[i] *= -o;
+                }
+
+                if (pessoas[i].getY() + y[i] < 0) {
+                    y[i] *= -o;
+                }
+
+                // buscar pela mulher ideal
+                if (Math.random() > 0.5) {
+                    this.pessoas[0].setIcon(new javax.swing.ImageIcon(getClass().getResource(this.IMG_PATH + "im4" + this.IMG_EXTENSION)));
+                    if (x[0] < x[i]) {
+                        x[i]-=1;
+                    } else {
+                        x[i]+=1;
+                    }
+                    
+                    if (y[0] < y[i]) {
+                        y[i]-=1;
+                    } else {
+                        y[i]+=1;
+                    }
+                }
+
+                this.pessoas[i].setLocation(pessoas[i].getX() + x[i], pessoas[i].getY() + y[i]);
+            }
+
+            try {
+
+                Thread.sleep(vel);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
