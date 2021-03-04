@@ -7,3 +7,4 @@
 # arquivos temporários do Ubuntu
 *.swp
 
+/Java/ProgramacaoParalela/JogoSnake/nbproject/private/
