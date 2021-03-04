@@ -9,6 +9,8 @@ int main()
 
 	if (score >= 75)
 		printf("Você passou.\n");
+	else if (score >= 50)
+		printf("Você ficou em recuperação.\n");
 	else
 		printf("Você não passou.\n");
 
