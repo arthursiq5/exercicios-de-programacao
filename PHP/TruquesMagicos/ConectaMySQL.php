@@ -17,6 +17,13 @@
             $consulta = "SELECT * FROM modulos";
         $resultado = mysqli_query($conexao, $consulta)
             or die("Falha na execução da consulta: " . mysqli_error($conexao));
+        
+            $linha = mysqli_fetch_assoc($resultado);
+        $Nome = $linha["nome"];
+        $Categoria = $linha["categoria"];
+        
+        echo "<b>Nome do Módulo:</b> $Nome<br>";
+        echo "<b>Categoria:</b> $Categoria <br>";
         echo "Consulta executada com sucesso";
     ?>
 </body>
