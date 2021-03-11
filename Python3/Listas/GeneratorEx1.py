@@ -8,3 +8,6 @@ for i in countdown():
     print(i) # essa lista pode ser mostrada dessa forma
 
 print(countdown()) # isso retornará uma posição na memória
+
+# se passar a função para a função "list" o generator é convertido para lista
+print(list(countdown()))
