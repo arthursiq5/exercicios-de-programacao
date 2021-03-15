@@ -1,10 +1,8 @@
 import * as p5 from 'p5';
 import { gamemap } from './Mapa';
+import { gameHeight, gameWidth } from './constantes';
 
 const containerElement = document.getElementById('p5-container');
-
-const gameWidth = 320;
-const gameHeight = 200;
 
 const sketch = (p) => {
     let x = 100;
