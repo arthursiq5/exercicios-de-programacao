@@ -27,7 +27,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 41.0837
+radius = 45.0123
 height = 38.3252
 
 [node name="Turba" type="RigidBody2D"]
@@ -36,7 +36,7 @@ script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "andar"
+animation = "voar"
 frame = 1
 playing = true
 
