@@ -1,11 +1,13 @@
 const fetchPokemon = () => {
-    const url = `https://pokeapi.co/api/v2/pokemon/25`;
+    const totalPokemons = 150;
+    const getPokemonUrl = id => `https://pokeapi.co/api/v2/pokemon/${id}`;
 
-    fetch(url) // puxando dados via ajax (ele retorna uma promise)
-        .then(response => response.json())
-        .then(pokemon => {
-            console.log(pokemon)
-        })
+    for (let id = 1; id <= totalPokemons; id++) {
+        fetch(getPokemonUrl(id))
+            .then(response => response.json());    
+    }
+
+    
 };
 
 fetchPokemon();
