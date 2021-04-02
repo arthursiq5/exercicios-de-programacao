@@ -3,7 +3,8 @@ const person = {
     lastName: 'White',
     nickName: 'Heisenberg',
     getFullName () {
-        console.log(`${this.firstName} ${this.lastName}, ou ${this.nickName}`);
+        const { firstName, lastName, nickName } = this;
+        console.log(`${firstName} ${lastName}, ou ${nickName}`);
     }
 }
 
