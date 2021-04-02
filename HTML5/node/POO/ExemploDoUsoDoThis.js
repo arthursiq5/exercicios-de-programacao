@@ -4,8 +4,12 @@ const person = {
     nickName: 'Heisenberg',
     getFullName () {
         const { firstName, lastName, nickName } = this;
-        console.log(`${firstName} ${lastName}, ou ${nickName}`);
+        return `${firstName} ${lastName}, ou ${nickName}`;
+    },
+    printBio () {
+        const fullName = this.getFullName();
+        console.log(`${fullName} é um personagem da série Breaking Bad`);
     }
 }
 
-person.getFullName();
+person.printBio();
