@@ -6,8 +6,8 @@ const generatePokemonPromises = () => Array(150).fill().map((element, index) =>
     fetch(getPokemonUrl(index + 1))
         .then(response => response.json()));
 
-const generateHTML = pokemons => {
-    return pokemons.reduce((accumulator, pokemon) => {
+const generateHTML = pokemons =>
+    pokemons.reduce((accumulator, pokemon) => {
         const types = pokemon.types.map(typeInfo => typeInfo.type.name)
 
         accumulator += `<li class="card ${types[0]}">
@@ -17,20 +17,12 @@ const generateHTML = pokemons => {
         </li>`;
         return accumulator;
     }, '');
-}
 
 const insertPokemonsIntoPage = pokemons => {
     const ul = document.querySelector('ul[data-js="pokedex"].pokedex');
     ul.innerHTML = pokemons;
 }
 
-const fetchPokemon = () => {
-
-    const pokemonPromises = generatePokemonPromises();
-
-    Promise.all(pokemonPromises)
-        .then(generateHTML)
-        .then(insertPokemonsIntoPage);
-};
-
-fetchPokemon();
+Promise.all(generatePokemonPromises())
+    .then(generateHTML)
+    .then(insertPokemonsIntoPage);
