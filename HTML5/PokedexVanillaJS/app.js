@@ -19,16 +19,18 @@ const generateHTML = pokemons => {
     }, '');
 }
 
+const insertPokemonsIntoPage = pokemons => {
+    const ul = document.querySelector('ul[data-js="pokedex"].pokedex');
+    ul.innerHTML = pokemons;
+}
+
 const fetchPokemon = () => {
 
     const pokemonPromises = generatePokemonPromises();
 
     Promise.all(pokemonPromises)
         .then(generateHTML)
-        .then(pokemons => {
-            const ul = document.querySelector('ul[data-js="pokedex"].pokedex');
-            ul.innerHTML = pokemons;
-        });
+        .then(insertPokemonsIntoPage);
 };
 
 fetchPokemon();
