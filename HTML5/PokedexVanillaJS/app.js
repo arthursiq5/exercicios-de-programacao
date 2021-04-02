@@ -12,10 +12,16 @@ const fetchPokemon = () => {
 
     Promise.all(pokemonPromises)
         .then(pokemons => {
-            console.log(pokemons)
+            // console.log(pokemons)
 
             const lisPokemons = pokemons.reduce((accumulator, pokemon) => {
-                accumulator += `<li>${pokemon.name}</li>`;
+                const types = pokemon.types.map(typeInfo => typeInfo.type.name)
+
+                accumulator += `<li class="card">
+                    <img class="card-image ${types[0]}" alt="${pokemon.name}" src="">
+                    <h2 class="card-title">${pokemon.id}. ${pokemon.name}</h2>
+                    <p class="card-subtitle">${types.join(' | ')}</p>
+                </li>`;
                 return accumulator;
             }, '');
             console.log(lisPokemons);
