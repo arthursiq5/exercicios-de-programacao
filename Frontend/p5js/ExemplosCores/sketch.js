@@ -14,5 +14,9 @@ function draw() {
     strokeWeight(10); // aumenta a grossura da borda
     stroke(0, 255, 0); // pinta a borda de verde
     fill(255, 0, 0); // pinta o desenho a seguir de vermelho
-    circle(200, 200, 200);
+    circle(150, 200, 200);
+
+    noStroke();
+    fill('rgba(0, 0, 255, 0.5)'); // pinta o desenho a seguir de azul
+    circle(250, 200, 200);
 }
