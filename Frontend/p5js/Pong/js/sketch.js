@@ -12,8 +12,8 @@ function setup()
     createCanvas(800, 500);
 
     player = new Player();
-    ai = new AI();
     ball = new Ball();
+    ai = new AI(ball);
 
     for (let y = dSize / 2; y < height; y += dSize * 2) {
         dots.push(createVector((width / 2) - (dSize / 2), y));

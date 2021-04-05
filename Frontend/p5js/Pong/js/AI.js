@@ -1,7 +1,8 @@
 class AI
 {
-    constructor()
+    constructor(ball)
     {
+        this._ball = ball;
         this.width = 15;
         this.height = 80;
 
@@ -35,8 +36,24 @@ class AI
 
     update()
     {
-        this.acceleration.y = constrain(this.acceleration.y, -this.maxSpeed, this.maxSpeed);
+        let d1 = dist(this._ball.position.x, this._ball.position.y, this.position.x, this.position.y);
+        let d2 = dist(this._ball.position.x, this._ball.position.y, this.position.x, this.position.y + this.height);
+
+        let d = (d1 + d2) / 2;
+
         this.position.add(this.acceleration);
         this.position.y = constrain(this.position.y, 0, height-this.height);
+
+        if (d < 450) {
+            if ( this._ball.position.y < this.position.y - this.height / 2) {
+                this.acceleration.y -= this.speed;
+            }else{
+                this.acceleration.y += this.speed;
+            }
+            this.acceleration.y = constrain(this.acceleration.y, -this.maxSpeed, this.maxSpeed);
+        }else{
+            this.acceleration.y += random(-this.speed * 0.9, this.speed);
+            this.acceleration.y = constrain(this.acceleration.y, -this.maxSpeed, this.maxSpeed);
+        }
     }
 }
