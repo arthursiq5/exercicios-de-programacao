@@ -1,4 +1,4 @@
-var player, ball;
+var player, ball, ai;
 
 var playerScore = 0;
 var IAScore = 0;
@@ -12,6 +12,7 @@ function setup()
     createCanvas(800, 500);
 
     player = new Player();
+    ai = new AI();
     ball = new Ball();
 
     for (let y = dSize / 2; y < height; y += dSize * 2) {
@@ -33,6 +34,9 @@ function draw()
 
     ball.update();
     ball.show();
+
+    ai.update();
+    ai.show();
 }
 
 function drawScores()
