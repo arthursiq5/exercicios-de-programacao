@@ -16,7 +16,7 @@ function draw() {
     background(0);
 
     noStroke();
-    fill(255);
+    fill(255, 100);
     drawSquares();
 
     player.update();
