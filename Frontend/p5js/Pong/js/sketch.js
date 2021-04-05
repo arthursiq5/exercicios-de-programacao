@@ -1,6 +1,11 @@
 var player, ball;
+
+var playerScore = 0;
+var IAScore = 0;
+
 var dots = [];
 const dSize = 10;
+const txtSize = 30;
 
 function setup() {
     createCanvas(800, 500);
@@ -19,12 +24,26 @@ function draw() {
     noStroke();
     fill(255, 100);
     drawSquares();
+    drawScores();
 
     player.update();
     player.show();
 
     ball.update();
     ball.show();
+}
+
+function drawScores(){
+    let x1 = width * (1/4);
+    let x2 = width * (3/4);
+    let y = txtSize * 1.5;
+
+    noStroke();
+    fill(255);
+    textAlign(CENTER);
+    textSize(txtSize);
+    text(playerScore, x1, y);
+    text(IAScore, x2, y);
 }
 
 function drawSquares(){
