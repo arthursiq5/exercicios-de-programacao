@@ -12,6 +12,7 @@ func start(pos):
 # Called when the node enters the scene tree for the first time.
 func _ready():
     screen_size = get_viewport_rect().size
+    hide()
 
 func _process(delta):
     var velocity = Vector2()  # Vetor de movimento do jogador
