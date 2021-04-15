@@ -3,7 +3,6 @@
 namespace App\Loja;
 
 use app\Loja\Produto;
-use ArrayObject;
 
 class CarrinhoDeCompras
 {
@@ -11,12 +10,12 @@ class CarrinhoDeCompras
     
     public function __construct()
     {
-        $this->produtos = new ArrayObject();
+        $this->produtos = array();
     }
     
     public function adiciona(Produto $produto)
     {
-        $this->produtos->append($produto);
+        $this->produtos[] = $produto;
         return $this;
     }
 

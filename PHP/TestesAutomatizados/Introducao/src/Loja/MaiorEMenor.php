@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Loja;
+
 use App\Loja\CarrinhoDeCompras;
 
 class MaiorEMenor
@@ -9,14 +11,14 @@ class MaiorEMenor
     public function encontra(CarrinhoDeCompras $carrinho)
     {
         foreach ($carrinho->getProdutos() as $produto) {
-        }
-        if (empty($this->menor)
-        || $produto->getValor() < $this->menor->getValor()) {
-            $this->menor = $produto;
-        }
-        if (empty($this->maior)
-        || $produto->getValor() > $this->maior->getValor()) {
-            $this->maior = $produto;
+            if (empty($this->menor)
+                || $produto->getValor() < $this->menor->getValor()) {
+                $this->menor = $produto;
+            }
+            if (empty($this->maior)
+                || $produto->getValor() > $this->maior->getValor()) {
+                $this->maior = $produto;
+            }
         }
     }
 
