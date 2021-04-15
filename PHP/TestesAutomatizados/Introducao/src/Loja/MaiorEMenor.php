@@ -3,12 +3,14 @@
 namespace App\Loja;
 
 use App\Loja\CarrinhoDeCompras;
+use App\Loja\Produto;
 
 class MaiorEMenor
 {
-    private $menor;
-    private $maior;
-    public function encontra(CarrinhoDeCompras $carrinho)
+    private Produto $menor;
+    private Produto $maior;
+
+    public function encontra(CarrinhoDeCompras $carrinho): void
     {
         foreach ($carrinho->getProdutos() as $produto) {
             if (empty($this->menor)
@@ -22,11 +24,11 @@ class MaiorEMenor
         }
     }
 
-    public function getMenor()
+    public function getMenor(): Produto
     {
         return $this->menor;
     }
-    public function getMaior()
+    public function getMaior(): Produto
     {
         return $this->maior;
     }

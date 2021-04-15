@@ -6,25 +6,25 @@ use app\Loja\Produto;
 
 class CarrinhoDeCompras
 {
-    private $produtos;
+    private array $produtos;
     
     public function __construct()
     {
         $this->produtos = array();
     }
     
-    public function adiciona(Produto $produto)
+    public function adiciona(Produto $produto): CarrinhoDeCompras
     {
         $this->produtos[] = $produto;
         return $this;
     }
 
-    public function getProdutos()
+    public function getProdutos(): array
     {
         return $this->produtos;
     }
 
-    public function maiorValor()
+    public function maiorValor(): float
     {
         if (count($this->getProdutos()) === 0) {
             return 0;

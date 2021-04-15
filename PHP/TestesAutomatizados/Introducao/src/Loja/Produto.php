@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Loja;
+namespace App\Loja;
 
 class Produto
 {
-    private $nome;
-    private $valor;
+    private string $nome;
+    private float $valor;
 
     public function __construct($nome, $valor)
     {
@@ -13,12 +13,12 @@ class Produto
         $this->valor = $valor;
     }
 
-    function getNome()
+    function getNome(): string
     {
         return $this->nome;
     }
 
-    function getValor()
+    function getValor(): float
     {
         return $this->valor;
     }

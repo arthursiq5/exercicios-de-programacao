@@ -25,7 +25,9 @@ class MaiorEMenorTest extends TestCase
         
         $this->assertEquals("Jogo de pratos",
             $maiorMenor->getMenor()->getNome());
+        $this->assertInstanceOf('App\\Loja\\Produto', $maiorMenor->getMenor());
         $this->assertEquals("Geladeira",
             $maiorMenor->getMaior()->getNome());
+            $this->assertInstanceOf('App\\Loja\\Produto', $maiorMenor->getMaior());
     }
 }
