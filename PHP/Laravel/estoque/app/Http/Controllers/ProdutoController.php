@@ -4,20 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 
-class ProdutoController extends Controller{
+class ProdutoController extends Controller
+{
 
-    public function lista() {
-
-        $html = '<h1>Listagem de produtos com Laravel</h1>';
-        $html .= '<ul>';
-
+    public function lista()
+    {
         $produtos = DB::select('SELECT * FROM produtos');
-        foreach ($produtos as $produto) {
-            $html .= '<li> Nome: ' . $produto->nome
-                . ', Descrição: ' . $produto->descricao . '</li>';
-        }
-        $html .= '</ul>';
 
-        return $html;
+        return view('listagem')
+            ->with('produtos', $produtos);
     }
 }
