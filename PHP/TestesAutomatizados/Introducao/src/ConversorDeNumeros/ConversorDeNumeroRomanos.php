@@ -17,11 +17,24 @@ class ConversorDeNumeroRomanos
     public function converte(string $numeroRomano): int
     {
         $acumulador = 0;
-        for ($i=0; $i < strlen($numeroRomano); $i++) {
+        $ultimoVizinhoDaDireita = 0;
+
+        for ($i=strlen($numeroRomano) - 1; $i >= 0; $i--) {
+            $atual = 0;
             $algarismoAtual = $numeroRomano[$i];
+
             if (array_key_exists($algarismoAtual, $this->tabela)) {
-                $acumulador += $this->tabela[$algarismoAtual];
+                $atual = $this->tabela[$algarismoAtual];
             }
+
+            $multiplicador = 1;
+            if ($atual < $ultimoVizinhoDaDireita) {
+                $multiplicador = -1;
+            }
+
+            $acumulador += ($atual * $multiplicador);
+
+            $ultimoVizinhoDaDireita = $atual;
         }
 
         return $acumulador;
