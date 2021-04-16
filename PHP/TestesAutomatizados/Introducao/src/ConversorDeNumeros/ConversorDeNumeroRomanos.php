@@ -27,11 +27,10 @@ class ConversorDeNumeroRomanos
                 $atual = $this->tabela[$algarismoAtual];
             }
 
-            $multiplicador = 1;
-            if ($atual < $ultimoVizinhoDaDireita) {
-                $multiplicador = -1;
-            }
+            // definido multiplicador
+            $multiplicador = $atual >= $ultimoVizinhoDaDireita ? 1 : -1;
 
+            // número atual * multiplicador
             $acumulador += ($atual * $multiplicador);
 
             $ultimoVizinhoDaDireita = $atual;
