@@ -32,4 +32,11 @@ class ConversorDeNumeroRomanosTest extends TestCase
         $this->assertEquals(3, $this->romano->converte('III'));
         $this->assertEquals(7, $this->romano->converte('VII'));
     }
+
+    public function testDeveEntenderNumerosMenores()
+    {
+        $this->assertEquals(9, $this->romano->converte('IX'));
+        $this->assertEquals(19, $this->romano->converte('XIX'));
+        $this->assertEquals(44, $this->romano->converte('XLIV'));
+    }
 }
