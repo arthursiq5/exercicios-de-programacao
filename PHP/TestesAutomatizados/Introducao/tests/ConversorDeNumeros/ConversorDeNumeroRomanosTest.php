@@ -18,4 +18,12 @@ class ConversorDeNumeroRomanosTest extends TestCase
         $this->assertEquals(500, $romano->converte('D'));
         $this->assertEquals(1000, $romano->converte('M'));
     }
+
+    public function testDeveEntenderSimbolosDuplicados()
+    {
+        $romano = new ConversorDeNumeroRomanos();
+        $this->assertEquals(2, $romano->converte('II'));
+        $this->assertEquals(3, $romano->converte('III'));
+        $this->assertEquals(7, $romano->converte('VII'));
+    }
 }
