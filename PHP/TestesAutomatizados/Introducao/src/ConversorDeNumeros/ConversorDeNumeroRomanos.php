@@ -16,10 +16,14 @@ class ConversorDeNumeroRomanos
 
     public function converte(string $numeroRomano): int
     {
-        if (array_key_exists($numeroRomano, $this->tabela)) {
-            return $this->tabela[$numeroRomano];
+        $acumulador = 0;
+        for ($i=0; $i < strlen($numeroRomano); $i++) {
+            $algarismoAtual = $numeroRomano[$i];
+            if (array_key_exists($algarismoAtual, $this->tabela)) {
+                $acumulador += $this->tabela[$algarismoAtual];
+            }
         }
 
-        return 0;
+        return $acumulador;
     }
 }
