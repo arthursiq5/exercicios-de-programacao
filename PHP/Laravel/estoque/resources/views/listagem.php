@@ -1,7 +1,11 @@
 <html>
+<head>
+    <link rel="stylesheet" href="./css/app.css">
+    <title>Controle de Estoque</title>
+</head>
 <body>
     <h1>Listagem de produtos com Laravel</h1>
-    <table>
+    <table class="table table-striped table-bordered table-hover">
         <?php foreach ($produtos as $produto): ?>
         <tr>
             <td><?= $produto->nome ?></td>
