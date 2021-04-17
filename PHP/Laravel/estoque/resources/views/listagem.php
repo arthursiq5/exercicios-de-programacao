@@ -12,6 +12,11 @@
             <td><?= $produto->valor ?></td>
             <td><?= $produto->descricao ?></td>
             <td><?= $produto->quantidade ?></td>
+            <td>
+                <a href="/produtos/mostra>">
+                    <i class="fas fa-search"></i>
+                </a>
+            </td>
         </tr>
         <?php endforeach ?>
     </table>
