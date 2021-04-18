@@ -18,19 +18,19 @@ public class TestaThread extends Thread {
     {
         this.m = m;
         this.n = n;
-        run();
+        this.start();
     }
     
     @Override
     public void run()
     {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             System.out.println(this.n + "principal" + i + "" + this.m);
         }
     }
     
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
             new TestaThread("vaca", i);
         }
     }
