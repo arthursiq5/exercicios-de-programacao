@@ -29,6 +29,17 @@ public class MainScreen extends JFrame implements Runnable {
     public MainScreen() {
         initComponents();
         
+        this.pessoas[0] = new JLabel();
+        this.pessoas[0].setIcon(new ImageIcon(getClass().getResource(IMG_PATH + "im" + 0 + IMG_EXTENSION)));
+        
+        int xIni = (int) (Math.random() * this.gamePanel.getWidth());
+        int yIni = (int) (Math.random() * this.gamePanel.getHeight());
+        
+        this.pessoas[0].setBounds(xIni, yIni, 32, 32);
+        this.gamePanel.add(this.pessoas[0]);
+        
+        pack();
+        
         Thread thread = new Thread(this);
         thread.start();
     }
@@ -36,6 +47,30 @@ public class MainScreen extends JFrame implements Runnable {
     @Override
     public void run() {
         
+        int x = 1;
+        int y = 1;
+        while(true){
+            if(this.pessoas[0].getX() < 0){
+                x = 1;
+            }
+            if(this.pessoas[0].getY() < 0){
+                y = 1;
+            }
+            
+            if(this.pessoas[0].getX() + (this.pessoas[0].getWidth()/2) > this.gamePanel.getWidth()){
+                x = -1;
+            }
+            if(this.pessoas[0].getY() + (this.pessoas[0].getHeight()/2) > this.gamePanel.getHeight()){
+                y = -1;
+            }
+            this.pessoas[0].setLocation(this.pessoas[0].getX() + x, this.pessoas[0].getY() + y);
+            
+            try{
+                Thread.sleep(10);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
