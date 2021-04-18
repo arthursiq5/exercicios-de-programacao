@@ -21,7 +21,6 @@ public class MainScreen extends JFrame implements Runnable {
     private JLabel pessoas[] = new JLabel[this.MAX_PESSOAS];
     private final int MAX_PESSOAS = 30;
     private int vel = 50;
-    
 
     /**
      * Creates new form MainScreen
@@ -29,14 +28,16 @@ public class MainScreen extends JFrame implements Runnable {
     public MainScreen() {
         initComponents();
         
-        this.pessoas[0] = new JLabel();
-        this.pessoas[0].setIcon(new ImageIcon(getClass().getResource(IMG_PATH + "im" + 0 + IMG_EXTENSION)));
-        
-        int xIni = (int) (Math.random() * this.gamePanel.getWidth());
-        int yIni = (int) (Math.random() * this.gamePanel.getHeight());
-        
-        this.pessoas[0].setBounds(xIni, yIni, 32, 32);
-        this.gamePanel.add(this.pessoas[0]);
+        for(int i = 0; i < this.pessoas.length; i++){
+            this.pessoas[i] = new JLabel();
+            this.pessoas[i].setIcon(new ImageIcon(getClass().getResource(IMG_PATH + "im" + ((int) Math.random() * 4) + IMG_EXTENSION)));
+
+            int xIni = (int) (Math.random() * this.gamePanel.getWidth());
+            int yIni = (int) (Math.random() * this.gamePanel.getHeight());
+
+            this.pessoas[i].setBounds(xIni, yIni, 32, 32);
+            this.gamePanel.add(this.pessoas[i]);
+        }
         
         pack();
         
@@ -47,23 +48,31 @@ public class MainScreen extends JFrame implements Runnable {
     @Override
     public void run() {
         
-        int x = 1;
-        int y = 1;
+        int x[] = new int[this.MAX_PESSOAS];
+        int y[] = new int[this.MAX_PESSOAS];
+        
+        for (int i = 0; i < this.MAX_PESSOAS; i++) {
+            x[i] = 1;
+            y[i] = 1;
+        }
+        
         while(true){
-            if(this.pessoas[0].getX() < 0){
-                x = 1;
+            for(int i = 0; i < this.MAX_PESSOAS; i++){
+                if(this.pessoas[i].getX() < 0){
+                    x[i] = 1;
+                }
+                if(this.pessoas[i].getY() < 0){
+                    y[i] = 1;
+                }
+
+                if(this.pessoas[i].getX() + (this.pessoas[i].getWidth()/2) > this.gamePanel.getWidth()){
+                    x[i] = -1;
+                }
+                if(this.pessoas[i].getY() + (this.pessoas[i].getHeight()/2) > this.gamePanel.getHeight()){
+                    y[i] = -1;
+                }
+                this.pessoas[i].setLocation(this.pessoas[i].getX() + x[i], this.pessoas[i].getY() + y[i]);
             }
-            if(this.pessoas[0].getY() < 0){
-                y = 1;
-            }
-            
-            if(this.pessoas[0].getX() + (this.pessoas[0].getWidth()/2) > this.gamePanel.getWidth()){
-                x = -1;
-            }
-            if(this.pessoas[0].getY() + (this.pessoas[0].getHeight()/2) > this.gamePanel.getHeight()){
-                y = -1;
-            }
-            this.pessoas[0].setLocation(this.pessoas[0].getX() + x, this.pessoas[0].getY() + y);
             
             try{
                 Thread.sleep(10);
