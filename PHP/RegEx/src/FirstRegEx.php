@@ -7,4 +7,9 @@ class FirstRegEx extends BasicRegEx {
     {
         return $this->assert('/(.*), (.*)/', $value);
     }
+
+    function beginsWith(string $pattern, string $value): bool
+    {
+        return $this->assert("/^$pattern/", $value);
+    }
 }
