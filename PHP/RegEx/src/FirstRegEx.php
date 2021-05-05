@@ -12,4 +12,9 @@ class FirstRegEx extends BasicRegEx {
     {
         return $this->assert("/^$pattern/", $value);
     }
+
+    function endsWith(string $pattern, string $value): bool
+    {
+        return $this->assert("/$pattern$/", $value);
+    }
 }

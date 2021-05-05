@@ -30,4 +30,10 @@ class FirstRegExTest extends TestCase
         $this->assertTrue($this->regex->beginsWith('ca', 'calvície'));
         $this->assertFalse($this->regex->beginsWith('ca', 'bacana'));
     }
+
+    public function testsEndsWith()
+    {
+        $this->assertTrue($this->regex->endsWith('r', 'correr'));
+        $this->assertFalse($this->regex->endsWith('r', 'corre'));
+    }
 }
