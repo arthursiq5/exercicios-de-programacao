@@ -2,8 +2,8 @@
 
 namespace App;
 
-class FirstRegEx {
+class FirstRegEx extends BasicRegEx {
     function separatedByCommas(string $value){
-        return !empty(preg_match('/(.*), (.*)/', $value));
+        return $this->assert('/(.*), (.*)/', $value);
     }
 }
