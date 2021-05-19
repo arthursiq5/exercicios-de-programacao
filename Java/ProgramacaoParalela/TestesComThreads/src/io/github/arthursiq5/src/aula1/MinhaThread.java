@@ -12,9 +12,11 @@ package io.github.arthursiq5.src.aula1;
 public class MinhaThread extends Thread {
 
     private String nome;
+    private int tempo;
 
-    public MinhaThread(String nome) {
+    public MinhaThread(String nome, int tempo) {
         this.nome = nome;
+        this.tempo = tempo;
         this.start();
     }
 
@@ -23,7 +25,7 @@ public class MinhaThread extends Thread {
         try {
             for (int i = 0; i < 6; i++) {
                 System.out.println(this.nome + " - contador " + i);
-                Thread.sleep(100);
+                Thread.sleep(this.tempo);
             }
         } catch (InterruptedException ex) {
             ex.printStackTrace();

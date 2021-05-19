@@ -12,7 +12,8 @@ package io.github.arthursiq5.src.aula1;
 public class MinhaThreadTeste {
 
     public static void main(String[] args) {
-        MinhaThread thread1 = new MinhaThread("Thread #1");
-        MinhaThread thread2 = new MinhaThread("Thread #2");
+        MinhaThread thread1 = new MinhaThread("Thread #1", 600);
+        MinhaThread thread2 = new MinhaThread("Thread #2", 900);
+        MinhaThread thread3 = new MinhaThread("Thread #3", 100);
     }
 }
