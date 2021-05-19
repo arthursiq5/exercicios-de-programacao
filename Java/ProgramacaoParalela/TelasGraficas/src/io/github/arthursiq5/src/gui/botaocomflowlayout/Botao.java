@@ -15,20 +15,25 @@ import javax.swing.JFrame;
  *
  * @author arthur
  */
-public class Botao extends JFrame {
+public class Botao extends JFrame{
 
     private JButton ok;
     private JButton cancelar;
+    private ButtonHandler handler;
 
     public Botao() {
         super("Criando botões");
         this.setLayout(new FlowLayout());
-        
+
         Icon xicara = new ImageIcon(getClass().getResource("xicara.png"));
+        
         this.ok = new JButton("Ok", xicara);
         this.cancelar = new JButton("Cancelar");
-        
+        this.handler = new ButtonHandler(this.ok, this.cancelar);
+
+        this.ok.addActionListener(handler);
         this.add(this.ok);
+        this.cancelar.addActionListener(handler);
         this.add(this.cancelar);
     }
 }
