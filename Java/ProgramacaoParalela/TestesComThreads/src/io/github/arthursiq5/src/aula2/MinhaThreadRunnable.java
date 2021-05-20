@@ -43,6 +43,7 @@ public class MinhaThreadRunnable implements Runnable {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+        System.out.println(this.nome + " terminou a execução");
     }
 
 }
