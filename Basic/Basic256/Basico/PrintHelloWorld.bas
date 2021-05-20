@@ -1,2 +1,0 @@
-cls
-print "Hello, World"
