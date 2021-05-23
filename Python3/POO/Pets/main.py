@@ -1,4 +1,4 @@
-from Dog import Dog
+from Canidae import Dog
 from Cat import Cat
 
 bob = Dog('Bob', 'Caramelo')
